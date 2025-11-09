@@ -1,11 +1,13 @@
+@Library('shared') _ 
 pipeline {
     agent any
 
     stages {
         stage('Code Pull') {
             steps {
-                git branch: 'main', url: 'https://github.com/devbratsardar/django-notes-app.git'
-                echo 'code pull successfully'
+                script{
+                code_checkout('https://github.com/devbratsardar/django-notes-app.git','main')
+                }
             }
         }
         stage('Code Build') {
