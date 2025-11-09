@@ -8,6 +8,7 @@ pipeline {
                 script{
                 code_checkout('https://github.com/devbratsardar/django-notes-app.git','main')
                 }
+                echo "done";
             }
         }
         stage('Code Build') {
