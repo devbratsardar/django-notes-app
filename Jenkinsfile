@@ -7,7 +7,7 @@ pipeline {
     
     stages {
         stage('echo'){
-            echo "pass : ${DOCKERHUB_CREDS_PSW}  # user: ${DOCKERHUB_CREDS_USR}"
+            echo "pass : "
         }
         stage('Code Pull') {
             steps {
