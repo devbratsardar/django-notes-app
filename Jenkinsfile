@@ -8,13 +8,13 @@ pipeline {
                 script{
                 code_checkout('https://github.com/devbratsardar/django-notes-app.git','main')
                 }
-                echo "done";
             }
         }
         stage('Code Build') {
             steps {
-                sh "docker build -t notesapp ."
-                echo 'Image build successfully'
+                script{
+                docker_build("notesapp")
+                }
             }
         }
         stage('Code Deploy') {
