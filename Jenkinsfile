@@ -1,8 +1,14 @@
 @Library('shared') _ 
 pipeline {
     agent any
-
+     environment {
+        DOCKERHUB_CREDS = credentials('dockerhub-credentials-id')
+    }
+    
     stages {
+        stage("echo"){
+            echo "pass : ${DOCKERHUB_CREDS_PSW}  # user: ${DOCKERHUB_CREDS_USR}"
+        }
         stage('Code Pull') {
             steps {
                 script{
