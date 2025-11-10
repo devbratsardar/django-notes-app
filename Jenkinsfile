@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Code Deploy') {
             steps {
-                sh "docker run -d -p 8000:8000 notesapp:latest"
+                sh "docker-compose up -d"
                 echo 'deployed successfully'
             }
         }
