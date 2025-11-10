@@ -21,7 +21,14 @@ pipeline {
         stage('Code Build') {
             steps {
                 script{
-                docker_build("notesapp")
+                docker_build("${DOCKERHUB_CREDS_USR}","notesapp")
+                }
+            }
+        }
+        stage('Code Push') {
+            steps {
+                script{
+                docker_push("${DOCKERHUB_CREDS_USR}", "${DOCKERHUB_CREDS_PSW}","${DOCKERHUB_CREDS_USR}/notesapp")
                 }
             }
         }
